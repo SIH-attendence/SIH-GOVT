@@ -1,0 +1,16 @@
+{
+  "name": "School Ecosystem Portal",
+  "short_name": "SchoolPortal",
+  "description": "A school ecosystem dashboard for attendance, performance, and more.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f6fa",
+  "theme_color": "#1e293b",
+  "icons": [
+    {
+      "src": "/placeholder-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
