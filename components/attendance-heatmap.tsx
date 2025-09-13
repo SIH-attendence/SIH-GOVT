@@ -24,36 +24,36 @@ const getTrendIcon = (trend: string) => {
 
 export function AttendanceHeatmap() {
   return (
-    <Card className="p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-          <MapPin className="h-5 w-5 text-primary" />
+    <Card className="p-4 sm:p-6 lg:p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-4 sm:mb-6">
+        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+          <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-card-foreground">Regional Attendance Heatmap</h3>
-          <p className="text-sm text-muted-foreground">District-wise attendance performance overview</p>
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-card-foreground">Regional Attendance Heatmap</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground">District-wise attendance performance overview</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
         {regions.map((region) => (
           <div
             key={region.name}
-            className="group p-6 rounded-xl border border-border bg-gradient-to-br from-background to-muted/20 hover:shadow-soft transition-all duration-300 hover:scale-[1.02]"
+            className="group p-4 sm:p-6 rounded-xl border border-border bg-gradient-to-br from-background to-muted/20 hover:shadow-soft transition-all duration-300 hover:scale-[1.02]"
           >
-            <div className="flex items-start justify-between mb-4">
+            <div className="flex items-start justify-between mb-3 sm:mb-4">
               <div className="flex-1">
-                <h4 className="font-semibold text-foreground text-base mb-1">{region.name}</h4>
+                <h4 className="font-semibold text-foreground text-sm sm:text-base mb-1">{region.name}</h4>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span>{region.schools} schools</span>
                   <div className="flex items-center gap-1">{getTrendIcon(region.trend)}</div>
                 </div>
               </div>
-              <div className={`w-6 h-6 rounded-full ${region.color} shadow-sm`} />
+              <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full ${region.color} shadow-sm`} />
             </div>
 
-            <div className="space-y-3">
-              <div className="text-3xl font-bold text-foreground">{region.attendance}%</div>
+            <div className="space-y-2 sm:space-y-3">
+              <div className="text-2xl sm:text-3xl font-bold text-foreground">{region.attendance}%</div>
 
               <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
                 <div
@@ -92,19 +92,19 @@ export function AttendanceHeatmap() {
         ))}
       </div>
 
-      <div className="mt-8 p-4 bg-muted/30 rounded-lg">
-        <h4 className="text-sm font-medium text-foreground mb-3">Performance Indicators</h4>
-        <div className="flex flex-wrap items-center gap-6 text-sm">
+      <div className="mt-6 sm:mt-8 p-3 sm:p-4 bg-muted/30 rounded-lg">
+        <h4 className="text-xs sm:text-sm font-medium text-foreground mb-2 sm:mb-3">Performance Indicators</h4>
+        <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-3 sm:gap-6 text-xs sm:text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-success shadow-sm" />
+            <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-success shadow-sm" />
             <span className="text-muted-foreground">Excellent (90%+)</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-primary shadow-sm" />
+            <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-primary shadow-sm" />
             <span className="text-muted-foreground">Good (80-89%)</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-destructive shadow-sm" />
+            <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-destructive shadow-sm" />
             <span className="text-muted-foreground">Needs Attention (&lt;80%)</span>
           </div>
         </div>

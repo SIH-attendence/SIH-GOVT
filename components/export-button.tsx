@@ -121,7 +121,7 @@ ${data.alerts.map((alert: any) => `${alert.school}: ${alert.type} (${alert.sever
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-30">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30">
       <div className="relative">
         {showDropdown && (
           <div className="absolute bottom-full right-0 mb-2 bg-card border border-border rounded-lg shadow-lg min-w-[160px]">
@@ -144,7 +144,7 @@ ${data.alerts.map((alert: any) => `${alert.school}: ${alert.type} (${alert.sever
             onClick={() => setShowDropdown(!showDropdown)}
             disabled={isExporting}
             className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg gap-2 transition-all duration-200"
-            size="lg"
+            size="sm"
           >
             {isExporting ? (
               <>

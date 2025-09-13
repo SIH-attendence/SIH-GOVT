@@ -27,7 +27,8 @@ export function Sidebar({ activeMenuItem, setActiveMenuItem, collapsed, setColla
         className={cn(
           "fixed left-0 top-0 h-full bg-sidebar border-r border-sidebar-border z-50 transition-all duration-300 shadow-elevated",
           collapsed ? "w-16" : "w-64",
-          "lg:relative lg:z-auto",
+          "lg:relative lg:z-auto lg:translate-x-0",
+          collapsed ? "lg:w-16" : "lg:w-64",
         )}
       >
         <div className="p-6">

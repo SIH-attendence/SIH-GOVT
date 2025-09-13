@@ -26,30 +26,30 @@ const data = [
 
 export function AttendanceTrends() {
   return (
-    <Card className="p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
-      <div className="flex items-center justify-between mb-6">
+    <Card className="p-4 sm:p-6 lg:p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 sm:mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-            <TrendingUp className="h-5 w-5 text-primary" />
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-card-foreground">Attendance Trends</h3>
-            <p className="text-sm text-muted-foreground">12-month performance + AI predictions</p>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-card-foreground">Attendance Trends</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground">12-month performance + AI predictions</p>
           </div>
         </div>
-        <div className="flex gap-2">
-          <Badge variant="secondary" className="bg-success/10 text-success border-success/20">
+        <div className="flex flex-col sm:flex-row gap-2">
+          <Badge variant="secondary" className="bg-success/10 text-success border-success/20 w-fit">
             <Calendar className="h-3 w-3 mr-1" />
             2024 Data
           </Badge>
-          <Badge variant="secondary" className="bg-chart-2/10 text-chart-2 border-chart-2/20">
+          <Badge variant="secondary" className="bg-chart-2/10 text-chart-2 border-chart-2/20 w-fit">
             <Brain className="h-3 w-3 mr-1" />
             AI Forecast
           </Badge>
         </div>
       </div>
 
-      <div className="h-80 mb-6">
+      <div className="h-60 sm:h-80 mb-4 sm:mb-6">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
             <defs>
@@ -128,34 +128,34 @@ export function AttendanceTrends() {
         </ResponsiveContainer>
       </div>
 
-      <div className="grid grid-cols-4 gap-4">
-        <div className="text-center p-4 bg-muted/30 rounded-lg">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="text-center p-3 sm:p-4 bg-muted/30 rounded-lg">
           <div className="flex items-center justify-center gap-2 mb-2">
             <div className="w-2 h-2 rounded-full bg-primary" />
             <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Average</span>
           </div>
-          <div className="text-2xl font-bold text-foreground">91.2%</div>
+          <div className="text-lg sm:text-2xl font-bold text-foreground">91.2%</div>
         </div>
-        <div className="text-center p-4 bg-success/5 rounded-lg border border-success/20">
+        <div className="text-center p-3 sm:p-4 bg-success/5 rounded-lg border border-success/20">
           <div className="flex items-center justify-center gap-2 mb-2">
             <TrendingUp className="w-3 h-3 text-success" />
             <span className="text-xs font-medium text-success uppercase tracking-wide">Peak</span>
           </div>
-          <div className="text-2xl font-bold text-success">96%</div>
+          <div className="text-lg sm:text-2xl font-bold text-success">96%</div>
         </div>
-        <div className="text-center p-4 bg-destructive/5 rounded-lg border border-destructive/20">
+        <div className="text-center p-3 sm:p-4 bg-destructive/5 rounded-lg border border-destructive/20">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Target className="w-3 h-3 text-destructive" />
             <span className="text-xs font-medium text-destructive uppercase tracking-wide">Lowest</span>
           </div>
-          <div className="text-2xl font-bold text-destructive">85%</div>
+          <div className="text-lg sm:text-2xl font-bold text-destructive">85%</div>
         </div>
-        <div className="text-center p-4 bg-chart-2/5 rounded-lg border border-chart-2/20">
+        <div className="text-center p-3 sm:p-4 bg-chart-2/5 rounded-lg border border-chart-2/20">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Brain className="w-3 h-3 text-chart-2" />
             <span className="text-xs font-medium text-chart-2 uppercase tracking-wide">Predicted</span>
           </div>
-          <div className="text-2xl font-bold text-chart-2">93%</div>
+          <div className="text-lg sm:text-2xl font-bold text-chart-2">93%</div>
         </div>
       </div>
     </Card>

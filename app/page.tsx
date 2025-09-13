@@ -12,9 +12,9 @@ import { DistrictModal } from "@/components/district-modal"
 
 function SchoolsContent() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <KPICards />
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
         <AttendanceHeatmap />
         <AttendanceTrends />
       </div>
@@ -36,18 +36,18 @@ function DistrictsContent() {
   ]
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <KPICards />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {districts.map((district) => (
           <div
             key={district.name}
             onClick={() => setSelectedDistrict(district.name)}
-            className="bg-card rounded-xl p-6 border border-border shadow-soft hover:shadow-elevated transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+            className="bg-card rounded-xl p-4 sm:p-6 border border-border shadow-soft hover:shadow-elevated transition-all duration-300 cursor-pointer hover:scale-[1.02]"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-foreground">{district.name}</h3>
+            <div className="flex items-center justify-between mb-3 sm:mb-4">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground">{district.name}</h3>
               <span
                 className={`px-2 py-1 rounded-full text-xs font-medium ${
                   district.status === "excellent"
@@ -111,28 +111,28 @@ function DistrictsContent() {
 
 function ReportsContent() {
   return (
-    <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-card rounded-xl p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Monthly Reports</h3>
-          <p className="text-muted-foreground mb-4">Comprehensive monthly attendance and performance reports</p>
-          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="bg-card rounded-xl p-4 sm:p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
+          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Monthly Reports</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Comprehensive monthly attendance and performance reports</p>
+          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
             Generate Report
           </button>
         </div>
 
-        <div className="bg-card rounded-xl p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Annual Summary</h3>
-          <p className="text-muted-foreground mb-4">Year-end comprehensive analysis and statistics</p>
-          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors">
+        <div className="bg-card rounded-xl p-4 sm:p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
+          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Annual Summary</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Year-end comprehensive analysis and statistics</p>
+          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
             View Summary
           </button>
         </div>
 
-        <div className="bg-card rounded-xl p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
-          <h3 className="text-lg font-semibold text-foreground mb-4">Custom Reports</h3>
-          <p className="text-muted-foreground mb-4">Create custom reports with specific parameters</p>
-          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors">
+        <div className="bg-card rounded-xl p-4 sm:p-6 border border-border shadow-soft hover:shadow-elevated transition-shadow">
+          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Custom Reports</h3>
+          <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Create custom reports with specific parameters</p>
+          <button className="w-full bg-primary text-primary-foreground py-2 px-4 rounded-lg hover:bg-primary/90 transition-colors text-sm">
             Create Custom
           </button>
         </div>
@@ -168,11 +168,16 @@ export default function GovernmentDashboard() {
       />
 
       <div
-        className={`flex-1 flex flex-col transition-all duration-300 ${sidebarCollapsed ? "ml-16" : "ml-64"} lg:ml-0`}
+        className={`flex-1 flex flex-col transition-all duration-300 ${
+          sidebarCollapsed ? "ml-16" : "ml-64"
+        } lg:ml-0`}
       >
-        <Header />
+        <Header 
+          sidebarCollapsed={sidebarCollapsed}
+          setSidebarCollapsed={setSidebarCollapsed}
+        />
 
-        <main className="flex-1 p-8 overflow-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
           <div className="max-w-7xl mx-auto">{renderContent()}</div>
         </main>
 

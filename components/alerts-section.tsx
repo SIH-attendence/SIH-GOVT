@@ -43,22 +43,22 @@ const alerts = [
 
 export function AlertsSection() {
   return (
-    <Card className="p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
-      <div className="flex items-center justify-between mb-6">
+    <Card className="p-4 sm:p-6 lg:p-8 bg-card border-border shadow-soft hover:shadow-elevated transition-all duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 sm:mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-destructive/10 rounded-lg flex items-center justify-center">
-            <Bell className="h-5 w-5 text-destructive" />
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-destructive/10 rounded-lg flex items-center justify-center">
+            <Bell className="h-4 w-4 sm:h-5 sm:w-5 text-destructive" />
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-card-foreground">School Anomalies & Alerts</h3>
-            <p className="text-sm text-muted-foreground">Real-time monitoring and notifications</p>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-card-foreground">School Anomalies & Alerts</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground">Real-time monitoring and notifications</p>
           </div>
         </div>
-        <div className="flex gap-2">
-          <Badge variant="destructive" className="bg-destructive text-destructive-foreground">
+        <div className="flex flex-col sm:flex-row gap-2">
+          <Badge variant="destructive" className="bg-destructive text-destructive-foreground w-fit">
             🔴 {alerts.filter((alert) => alert.severity === "critical").length} Critical
           </Badge>
-          <Badge variant="secondary" className="bg-warning/10 text-warning-foreground border-warning/20">
+          <Badge variant="secondary" className="bg-warning/10 text-warning-foreground border-warning/20 w-fit">
             🟠 {alerts.filter((alert) => alert.severity === "moderate").length} Moderate
           </Badge>
         </div>
@@ -99,16 +99,16 @@ export function AlertsSection() {
           return (
             <div
               key={alert.id}
-              className={`p-6 border-l-4 rounded-r-xl bg-background border border-border hover:shadow-soft transition-all duration-300 hover:scale-[1.01] ${config.borderColor} ${config.bgColor}`}
+              className={`p-4 sm:p-6 border-l-4 rounded-r-xl bg-background border border-border hover:shadow-soft transition-all duration-300 hover:scale-[1.01] ${config.borderColor} ${config.bgColor}`}
             >
-              <div className="flex items-start gap-4">
-                <div className={`p-3 rounded-full ${config.iconBg}`}>
-                  <Icon className={`h-5 w-5 ${config.iconColor}`} />
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className={`p-2 sm:p-3 rounded-full ${config.iconBg}`}>
+                  <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${config.iconColor}`} />
                 </div>
 
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold text-foreground text-lg">{alert.school}</h4>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                    <h4 className="font-semibold text-foreground text-sm sm:text-base lg:text-lg">{alert.school}</h4>
                     <div className="flex items-center gap-2">
                       <span
                         className={`text-sm font-medium ${
@@ -131,7 +131,7 @@ export function AlertsSection() {
                       </Badge>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-3 leading-relaxed">{alert.issue}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3 leading-relaxed">{alert.issue}</p>
                   <p className="text-xs text-muted-foreground font-medium">{alert.time}</p>
                 </div>
               </div>
